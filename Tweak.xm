@@ -134,7 +134,6 @@
 		if (currentIconListIndex == 0)
 			tempIconList = [iconController rootIconListAtIndex:(++currentIconListIndex)];
 		
-		int i = 0;
 		for (SBIcon *ticon in [[(SBFolderIcon *)icon folder] allIcons]) {
 			// zero base index
 			NSUInteger firstFreeSlotIndex = [tempIconList firstFreeSlotIndex];
@@ -149,10 +148,9 @@
 			
 			if (currentIconListIndex > 11) break;
 			
-			[folderListModel removeIconAtIndex:i];
+			[folderListModel removeIcon:ticon];
 			[tempIconList insertIcon:ticon atIndex:firstFreeSlotIndex moveNow:YES];
 			[tempIconList placeIcon:ticon atIndex:firstFreeSlotIndex moveNow:YES pop:YES];
-			i++;
 		}
 		
 		if (currentIconListIndex <= 11)
