@@ -215,7 +215,7 @@ static NSBundle *unFolderXBundle = nil;
 	if ([[self icon] isKindOfClass:[objc_getClass("SBFolderIcon") class]] && 
 		![[(SBFolderIcon *)[self icon] folder] isNewsstandFolder] &&
 		([self location] == 0 || [self location] == 1)) 
-{
+	{
 		[unFolderXDelegate release];
 		unFolderXDelegate = [[UnFolderXAlertDelegate alloc] initWithSBIcon:[self icon]];
 		
