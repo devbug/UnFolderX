@@ -1,6 +1,8 @@
 Package: me.devbug.unfolderx
 Name: UnFolderX
 Depends: mobilesubstrate, firmware (>= 5.0)
+Replaces: com.filippobiga.unfolder
+Conflicts: com.filippobiga.unfolder
 Version: 0.0.1
 Architecture: iphoneos-arm
 Description: Unfolder for iOS 5
