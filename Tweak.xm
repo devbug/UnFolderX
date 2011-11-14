@@ -215,6 +215,11 @@ static NSBundle *unFolderXBundle = nil;
 		![[(SBFolderIcon *)[self icon] folder] isNewsstandFolder] &&
 		([self location] == 0 || [self location] == 1)) 
 	{
+		SBIconController *iconController = [objc_getClass("SBIconController") sharedInstance];
+		
+		// this must do when folder is close.
+		if ([iconController currentFolderIconList] != nil) return;
+		
 		[unFolderXDelegate release];
 		unFolderXDelegate = [[UnFolderXAlertDelegate alloc] initWithSBIcon:[self icon]];
 		
