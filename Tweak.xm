@@ -27,7 +27,8 @@
 #include "objc/runtime.h"
 
 
-#define ALERTVIEW_TAG	20111114
+#define ALERTVIEW_TAG					20111114
+#define MAX_HOMESCREEN_PAGES			12
 
 
 
@@ -143,17 +144,17 @@
 				tempIconList = [iconController rootIconListAtIndex:currentIconListIndex];
 				firstFreeSlotIndex = [tempIconList firstFreeSlotIndex];
 				
-				if (currentIconListIndex > 11) break;
+				if (currentIconListIndex > MAX_HOMESCREEN_PAGES-1) break;
 			}
 			
-			if (currentIconListIndex > 11) break;
+			if (currentIconListIndex > MAX_HOMESCREEN_PAGES-1) break;
 			
 			[folderListModel removeIcon:ticon];
 			[tempIconList insertIcon:ticon atIndex:firstFreeSlotIndex moveNow:YES];
 			[tempIconList placeIcon:ticon atIndex:firstFreeSlotIndex moveNow:YES pop:YES];
 		}
 		
-		if (currentIconListIndex <= 11)
+		if (currentIconListIndex <= MAX_HOMESCREEN_PAGES-1)
 			[iconController removeIcon:icon compactFolder:YES];
 	}
 	
